@@ -1,0 +1,75 @@
+/*Define the function that accept mark of two cource (FOP-II and
+Data base) of n number of student.Display their grade.*/
+#include<iostream>
+using namespace std;
+
+char *cource1(int data_base[],char Grade[],int size){
+
+  for(int i=0;i<size;i++){
+
+     if(data_base[i]>90)
+       Grade[i]='A';
+     else if(data_base[i]>80)
+       Grade[i]='B';
+     else if(data_base[i]>60)
+       Grade[i]='C';
+     else if(data_base[i]>40)
+       Grade[i]='D';
+     else
+       Grade[i]='F';
+   }
+   return &Grade[0];
+}
+
+char *cource2(int FOP[],char Grade[],int size){
+
+  for(int i=0;i<size;i++){
+
+     if(FOP[i]>90)
+       Grade[i]='A';
+     else if(FOP[i]>80)
+       Grade[i]='B';
+     else if(FOP[i]>60)
+       Grade[i]='C';
+     else if(FOP[i]>40)
+       Grade[i]='D';
+     else
+       Grade[i]='F';
+   }
+   return &Grade[0];
+}
+
+ int main (){
+  int n;
+  cout<<"Enter number of student: ";
+  cin>>n;
+
+  int a[100];
+  char Grade[100];
+  char *p;
+
+  int b[100];
+  char c[100];
+  char *q;
+
+  for(int i=0;i<n;i++){
+    cout<<" student "<<i+1<<" data base mark: ";
+    cin>>a[i];
+  }
+
+  for(int i=0;i<n;i++){
+    cout<<" \tstudent "<<i+1<<" FOP-II mark: ";
+    cin>>b[i];
+  }
+
+  p=cource1(a,Grade,n);
+  for(int i=0;i<n;i++){
+    cout<<"student "<<i+1<<" DB grade: "<<*(p+i)<<endl;
+   }
+
+   q=cource2(b,c,n);
+  for(int i=0;i<n;i++){
+    cout<<"\tstudent "<<i+1<<" FOP-II grade: "<<*(q+i)<<endl;
+   }
+  return 0;
+ }
