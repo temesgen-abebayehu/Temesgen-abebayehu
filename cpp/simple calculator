@@ -1,0 +1,93 @@
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+
+int sum(int num1,int num2){
+	int sum=num1+num2;
+	return sum;	
+}
+
+int difference(int num1,int num2){
+	int diff=num1-num2;
+	return diff;
+}
+
+int product(int num1,int num2){
+	int mult=num1*num2;
+	return mult;
+}
+
+int divition(int num1,int num2){
+	int quotient=num1/num2;
+	return quotient;
+}
+
+int modules(int num1,int num2){
+	int rim=num1%num2;
+	return rim;
+}
+
+int main(){
+	int n1,n2,choice;
+	char ch;
+	cout<<"\t1.sum\n";
+	cout<<"\t2.Difference\n";
+	cout<<"\t3.product\n";
+	cout<<"\t4.Quotient\n";
+	cout<<"\t5.Riminder\n";
+
+first:{		
+	cout<<"What do want to comput?,Enter your choice: ";
+	cin>>choice;
+
+	if(choice==1){
+		cout<<"\nEnter two number respectively\n";
+		cin>>n1>>n2;
+		cout<<"Sum="<<sum(n1,n2);
+		goto c;
+	}
+	
+	else if(choice==2){
+		cout<<"\nEnter two number respectively\n";
+		cin>>n1>>n2;
+		cout<<"Difference="<<difference(n1,n2);
+		goto c;
+	}
+	else if(choice==3){
+		cout<<"\nEnter two number respectively\n";
+		cin>>n1>>n2;
+		cout<<"product="<<product(n1,n2);
+		goto c;
+	}
+	else if(choice==4){
+		cout<<"\nEnter two number respectively\n";
+		cin>>n1>>n2;
+		cout<<"Quotient="<<divition(n1,n2);
+		goto c;
+	}
+	else if(choice==5){
+		cout<<"\nEnter two number respectively\n";
+		cin>>n1>>n2;
+		cout<<"Riminder="<<modules(n1,n2);
+		goto c;
+	}
+	
+	else {
+		cout<<"\nInvalid input, Please try again!!! \n";
+		goto c;
+	}
+}
+
+c:
+{
+	cout<<"\nYou want to continue:(Y/N)? ";
+	cin>>ch;
+	if(ch=='y'||ch=='Y')
+		goto first;
+	else
+	{
+		cout<<"\nThank you for visiting!";
+		exit(0);
+	}
+}
+}
