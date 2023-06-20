@@ -1,3 +1,5 @@
+/*The program let the user to input the number in any format (i.e. in decimal or binary or 
+octal or hexadecimal) and convert to equivalent all other number system.*/
 #include<iostream>
 #include<string.h>
 #include<string>
