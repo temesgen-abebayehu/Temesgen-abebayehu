@@ -1,0 +1,69 @@
+/*The program compute and display total numbers of people attend the function and total
+amount of ticket sales. Also the program display a list of how many infants, children, 
+teenagers, and adults were at the function along with category codes.*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+int i=0,j=0,k=0,l=0,age;
+int s=0,t=0,u=0,v=0;
+menu:
+{
+	cout<<"\t1.Infant\n";
+	cout<<"\t2.Child\n";
+	cout<<"\t3.Teanager\n";
+	cout<<"\t4.Adalt\n";
+	cout<<"\t0.Terminate the program!\n";
+	cout<<"Enter your age level: ";
+	cin>>age;
+	if(age==1)
+	 goto a;
+	 else if(age==2)
+	  goto b;
+	 else if(age==3)
+       goto c;
+    else if(age==4)
+      goto d;
+    else if(age==0)
+      goto e;
+    else{
+      cout<<"Invalid input please try agean!\n";
+      goto menu;
+    }     
+}
+a:{
+	cout<<"The teket fee is 5 ETB\n";
+	i++;
+	s+=5;
+	goto menu;
+}
+b:{
+	cout<<"The teket fee is 10 ETB\n";
+	j++;
+	t+=10;
+	goto menu;
+}
+c:{
+	cout<<"The teket fee is 20 ETB\n";
+	k++;
+	u+=20;
+	goto menu;
+}
+d:{
+	cout<<"The teket fee is 20 ETB\n";
+	l++;
+	v+=20;
+	goto menu;
+}
+e:{
+	cout<<"Age group\tNo of person\tTotal fee\n";
+	cout<<"Infant\t\t"<<i<<"\t\t"<<s<<"\n";
+	cout<<"Child\t\t"<<j<<"\t\t"<<t<<"\n";
+	cout<<"Teanger\t\t"<<k<<"\t\t"<<u<<"\n";
+	cout<<"Adult\t\t"<<l<<"\t\t"<<v<<"\n";
+	cout<<"The total fee of all teket is: ";
+	cout<<s+t+u+v;
+}
+	
+}
