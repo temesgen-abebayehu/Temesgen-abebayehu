@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+double *extend(double price[][2],double qua[][2],double am[],int size){
+   int sum=0;
+   for(int i=0;i<size;i++){
+    am[i]=price[i][0]*qua[i][1];
+    sum+=am[i];
+   }
+   double *amount=&am[0];
+   cout<<"The total price of all items are: "<<sum<<endl;
+   return amount;
+}
+
+int main(){
+  double p[20][2],q[20][2],d[20],*ptr,n;
+  cout<<"Enter number of items:";
+  cin>>n;
+
+  for(int i=0;i<n;i++)  {
+    for(int j=0;j<2;j++){
+        if(j==0){
+            cout<<"Enter "<<i+1<<" item price: ";
+            cin>>p[i][j];
+        }
+        else{
+            cout<<"\tEnter "<<i+1<<" item quantity:";
+            cin>>q[i][j];
+        }
+    }
+  }
+  ptr=extend(p,q,d,n);
+  for(int i=0;i<n;i++)
+  cout<<"The "<<i+1<<" item total price is "<<*(ptr+i)<<endl;
+
+}
