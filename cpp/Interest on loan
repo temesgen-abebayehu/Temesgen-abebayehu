@@ -1,0 +1,47 @@
+/*Interest on a loan is paid on a declining loan balance, and hence a loan with an interest rate of, 
+say, 14 percent can cost significantly less than 14 percent of the loan balance. Write a program 
+that takes a loan amount and interest rate as input and then outputs the monthly payments and 
+balance of the loan until the loan is paid off. Assume that the monthly payments are one 
+twentieth (1/20) of the original loan amount including monthly interest paid. The monthly 
+interest payment is computed as (remaining loan balance * interest rate)/12, and that any 
+amount in excess of the interest is credited toward decreasing the balance due.*/
+
+#include <iostream>
+using namespace std;
+int main(){
+int i,j;    //i and j are parametre
+float la,ra,pa,ba[100],in[100],remaning,total_interest=0;
+/*Where,la means loan amount.
+        ra means interest rate.
+        pa means monthly payment.
+        ba means loan balance.
+        in means monthly interest.
+        */
+cout<<"Enter loan amount:";
+cin>>la;
+cout<<"Enter interest rate:";
+cin>>ra;
+
+ra=ra/100;
+pa=la/20;
+for(i=0;la>0;i++)
+{
+
+    in[i]=(la*ra)/12;
+    remaning=pa-in[i];
+    ba[i]=la-remaning;
+    la=ba[i];
+    total_interest+=in[i];
+}
+cout<<"monthly payment="<<pa;
+cout<<"\nmonth      \tinterst \tbalance of loan\n";
+
+for(j=0;j<i-1;j++)
+{
+    cout<<"month["<<j+1<<"]\t";
+    cout<<in[j]<<"\t\t";
+    cout<<ba[j]<<"\n";
+
+}
+cout<<"\nTotal interest is:"<<total_interest;
+ return 0;}
