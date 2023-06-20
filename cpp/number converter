@@ -1,0 +1,107 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<cmath>
+using namespace std;
+int main(){
+int len,w,n,i,j,k,l,rim1[100],rim2[100],rim3[100];
+int d,dece=0,tobina,tooct,tohex;
+char num[100];
+
+cout<<"Enter the number by any format:";
+cin>>num;
+a:
+cout<<"Enter the base of the number:";
+cin>>n;
+
+len=strlen(num);
+w=len;   //assine the value of 'len' to 'w'
+
+if(n==16)
+{
+   for(i=0;i<len;i++)
+   {
+       w--;
+       if(num[i]>='A'&&num[i]<='F')
+       {
+           d=(int(num[i]))-55;
+       }
+       else if(num[i]>='a'&&num[i]<='f')
+       {
+           d=(int (num[i]))-87;
+       }
+       else if(num[i]>='0'&&num[i]<='9')
+       {
+           d=(int (num[i]))-48;
+       }
+       dece+=d*pow(16,w);
+   }
+}
+else if(n<=10)
+{
+    for(i=0;i<len;i++)
+    {
+        w--;
+        d=(int (num[i]))-48;
+        dece+=d*pow(n,w);
+    }
+}
+else
+    {cout<<"Invalid base please try agan";
+    goto a;
+    }
+
+cout<<"Decimal\t\t"<<dece;
+tobina=dece;
+tooct=dece;
+tohex=dece;
+
+for(i=0;tobina>0;i++)
+{
+    rim1[i]=tobina%2;
+    tobina/=2;
+}
+for(j=0;tooct>0;j++)
+{
+    rim2[j]=tooct%8;
+    tooct/=8;
+}
+for(l=0;tohex>0;l++)
+{
+    rim3[l]=tohex%16;
+    tohex/=16;
+}
+cout<<"\nBinary\t\t";
+for(k=i-1;k>=0;k--)
+{
+    cout<<rim1[k];
+}
+cout<<"\nOctal\t\t";
+for(k=j-1;k>=0;k--)
+{
+    cout<<rim2[k];
+}
+cout<<"\nHexadecimal\t";
+if(n==16)
+    cout<<num;
+else{
+for(k=l-1;k>=0;k--)
+{
+    if(rim3[k]==10)
+       cout<<"A";
+    else if(rim3[k]==11)
+        cout<<"B";
+    else if(rim3[k]==12)
+        cout<<"C";
+    else if(rim3[k]==13)
+        cout<<"D";
+    else if(rim3[k]==14)
+        cout<<"E";
+    else if(rim3[k]==15)
+        cout<<"F";
+    else
+      cout<<rim3[k];
+}}
+
+return 0;
+ }
