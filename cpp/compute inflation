@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double cost, rate_of_inflation;
+    int years;
+
+    cout << "Enter the cost of the item: ";
+    cin >> cost;
+
+    cout << "Enter the number of years from now that the item will be purchased: ";
+    cin >> years;
+
+    cout << "Enter the rate of inflation as a percentage: ";
+    cin >> rate_of_inflation;
+
+    double fraction = rate_of_inflation / 100;
+    double adjusted_cost = cost * pow(1 + fraction, years);
+
+    cout << "The estimated cost of the item after " << years << " year(s) is $" << adjusted_cost << endl;
+
+    cout << "\nWould you like to see each year's cost difference in tabular format? (y/n): ";
+    char choice;
+    cin >> choice;
+
+    if (choice == 'y' || choice == 'Y')
+    {
+        cout << "\nYear\tCost\t\tdifference\n";
+        for (int i = 1; i <= years; i++)
+        {
+            double year_cost = cost * pow(1 + fraction, i);
+            double difference = year_cost - cost;
+            cout << i << "\t$" << year_cost << "\t\t$" << difference << endl;
+        }
+    }
+    else
+        cout << "\nThank you for using this program!\n";
+
+    return 0;
+}
